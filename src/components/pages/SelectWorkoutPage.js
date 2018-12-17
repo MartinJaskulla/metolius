@@ -31,32 +31,20 @@ justify-content: space-evenly;
 align-items: center;
 `
 const StyledH1 = styled.h1`
-font: 5vh Bangers, Arial;
+font: 7.6vw Bangers, Arial;
 color: #fff;
 text-shadow: .08em .08em 0 rgba(0, 0, 0, 0.7);
 transform: skew(0, -4deg);
 margin: 0rem;
 align-self: center;
-
-@media only screen and (min-width: 900px) {
-    & {
-        font: 7.6vw Bangers, Arial;
-    }
-  }
 `
 
 const StyledBottomRow = styled.div`
 display: flex;
-flex-direction: column;
+flex-direction: row;
 align-items: center;
 justify-content: space-between;
-
-@media only screen and (min-width: 900px) {
-    & {
-        width: 65vw;
-        flex-direction: row;
-    }
-  }
+width: 65vw;
 `
 
 const StyledButtonContainer = styled.div`
@@ -67,7 +55,7 @@ outline: none;
 `
 
 const StyledButton = styled.button`
-font-size: 15vh;
+font-size: 10vw;
 background: none;
 border: none;
 padding: 0;
@@ -79,12 +67,6 @@ transition: transform .2s
 &:focus {
     transform: translateY(-1rem) scale(1.02 )
 }
-
-@media only screen and (min-width: 900px) {
-    & {
-        font-size: 10vw;
-    }
-  }
 `
 
 export default SelectWorkoutPage
