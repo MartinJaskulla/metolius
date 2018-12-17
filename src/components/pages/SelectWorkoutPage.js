@@ -37,6 +37,7 @@ text-shadow: .08em .08em 0 rgba(0, 0, 0, 0.7);
 transform: skew(0, -4deg);
 margin: 0rem;
 align-self: center;
+
 @media only screen and (min-width: 900px) {
     & {
         font: 7.6vw Bangers, Arial;
@@ -49,6 +50,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-between;
+
 @media only screen and (min-width: 900px) {
     & {
         width: 65vw;
@@ -77,6 +79,7 @@ transition: transform .2s
 &:focus {
     transform: translateY(-1rem) scale(1.02 )
 }
+
 @media only screen and (min-width: 900px) {
     & {
         font-size: 10vw;
