@@ -3,59 +3,73 @@ import styled from "styled-components"
 
 const SelectWorkoutPage = props => {
     return (
-        <StyledLayout>
-            <StyledH1>Choose your Workout!</StyledH1>
-            <StyledBottomRow>
-                <StyledButtonContainer>
-                    <StyledButton onClick={() => props.history.push("/workouts/entry")}><span role="img" aria-label="Hatching chick">🐣</span></StyledButton>
-                </StyledButtonContainer>
-                <StyledButtonContainer>
-                    <StyledButton onClick={() => props.history.push("/workouts/intermediate")}><span role="img" aria-label="Monkey">🐒</span></StyledButton>
-                </StyledButtonContainer>
-                <StyledButtonContainer>
-                    <StyledButton onClick={() => props.history.push("/workouts/advanced")}><span role="img" aria-label="Gorilla">🦍</span></StyledButton>
-                </StyledButtonContainer>
-            </StyledBottomRow>
-        </StyledLayout>
+        <Layout>
+            <H1>Choose your Workout!</H1>
+            <Div>
+                <ButtonBox>
+                    <Button onClick={() => props.history.push("/workouts/entry")}><span role="img" aria-label="Hatching chick">🐣</span></Button>
+                </ButtonBox>
+                <ButtonBox>
+                    <Button onClick={() => props.history.push("/workouts/intermediate")}><span role="img" aria-label="Monkey">🐒</span></Button>
+                </ButtonBox>
+                <ButtonBox>
+                    <Button onClick={() => props.history.push("/workouts/advanced")}><span role="img" aria-label="Gorilla">🦍</span></Button>
+                </ButtonBox>
+            </Div>
+        </Layout>
     )
 }
 
-const StyledLayout = styled.div`
+const Layout = styled.div`
 height: 100vh;
-padding: 1rem;
+padding: 5vh;
 box-sizing: border-box;
-background: #15246d;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
--webkit-justify-content: space-evenly;
-align-items: center;
+background: #1fb990;
+position: relative;
 `
-const StyledH1 = styled.h1`
-font: 7.6vw Bangers, Arial;
+const H1 = styled.h1`
+height: 45vh;
+line-height: 50vh;
+text-align: center;
+font-family: Bangers, Arial;
+font-size: 8vw;
+font-weight: 100;
 color: #fff;
-text-shadow: .08em .08em 0 rgba(0, 0, 0, 0.7);
-transform: skew(0, -4deg);
 margin: 0rem;
-align-self: center;
 `
 
-const StyledBottomRow = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
+const Div = styled.div`
+height: 45vh;
 width: 65vw;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
 `
 
-const StyledButtonContainer = styled.div`
+const ButtonBox = styled.div`
+display: inline-block;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+:nth-child(1) {
+    
+}
+:nth-child(2) {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+:nth-child(3) {
+    right: 0;
+    transform: translate(0, -50%);
+}
+
 outline: none;
 &:hover > * {
     transform: translateY(-1rem) scale(1.02 )
 } 
 `
 
-const StyledButton = styled.button`
+const Button = styled.button`
 font-size: 10vw;
 background: none;
 border: none;
