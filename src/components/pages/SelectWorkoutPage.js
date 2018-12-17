@@ -28,6 +28,7 @@ background: #15246d;
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
+-webkit-justify-content: space-evenly;
 align-items: center;
 `
 const StyledH1 = styled.h1`
@@ -50,6 +51,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-between;
+-webkit-justify-content: space-between;
 
 @media only screen and (min-width: 900px) {
     & {
