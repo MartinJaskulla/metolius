@@ -137,7 +137,7 @@ const StyledH1 = styled.h1`
 // transform: skew(0, -4deg);
 
 const StyledH2 = styled.h2`
-    font-size: 4rem;
+    font-size: calc(3vw + 3vh);
     text-align: center;
     color: #fff;
     letter-spacing: 0.2rem;

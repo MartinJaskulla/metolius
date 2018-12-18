@@ -71,8 +71,10 @@ outline: none;
 text-decoration: none;
 transition: transform .2s
 
-&:focus {
-    transform: translateY(-1rem) scale(1.02 )
+@media only screen and (min-width: 1000px) {
+    &:focus {
+        transform: translateY(-1rem) scale(1.02 )
+    }
 }
 `
 
