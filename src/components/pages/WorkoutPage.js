@@ -5,6 +5,8 @@ Click anywhere to start/pause When two exercises dont have a rest between them: 
 Leertaste Pause detecten, focus button on start emoji. Tab Focus auch für start?
 */
 
+//  no flexbox, audio, emojis same size (audio stop previous one? before playing next manually?)
+
 import React, { useState, useRef } from "react"
 import useCountdown from "../../hooks/useCountdown"
 import styled from "styled-components"
@@ -19,7 +21,6 @@ import ThreeSecMp3 from "../../audio/3-sec.mp3"
 import HornWav from "../../audio/horn.wav"
 
 import Board from "../Board";
-import intermediate from "../../workouts/intermediate";
 
 const workouts = {
     entry: entryWorkout,
@@ -136,7 +137,7 @@ const StyledH1 = styled.h1`
 // transform: skew(0, -4deg);
 
 const StyledH2 = styled.h2`
-    font: 4rem Bangers, Arial;
+    font-size: 4rem;
     text-align: center;
     color: #fff;
     letter-spacing: 0.2rem;
