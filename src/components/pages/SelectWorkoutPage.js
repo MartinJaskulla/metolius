@@ -26,7 +26,7 @@ const Layout = styled.div`
 height: 100vh;
 padding: 5vh;
 box-sizing: border-box;
-background: #1fb990;
+background: #15246d;
 position: relative;
 text-align: center
 `

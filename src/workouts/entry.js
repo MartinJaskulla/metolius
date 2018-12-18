@@ -5,7 +5,6 @@ export default [
         hold: "Seven",
         seconds: 10,
     },
-    /*
     {
         description: "Rest",
         hold: null,
@@ -116,5 +115,4 @@ export default [
         hold: "any",
         seconds: 10,
     },
-    */
 ]
