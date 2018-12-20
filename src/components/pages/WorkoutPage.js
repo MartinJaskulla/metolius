@@ -16,11 +16,9 @@ import entryWorkout from "../../workouts/entry"
 import intermediateWorkout from "../../workouts/intermediate"
 import advancedWorkout from "../../workouts/advanced"
 
-import ZeroSecMp3 from "../../audio/0-sec.mp3"
-import OneSecMp3 from "../../audio/1-sec.mp3"
-import TwoSecMp3 from "../../audio/2-sec.mp3"
-import ThreeSecMp3 from "../../audio/3-sec.mp3"
-import HornWav from "../../audio/horn.wav"
+import startAudio from "../../audio/start.mp3"
+import beepAudio from "../../audio/beep.mp3"
+import doneAudio from "../../audio/done.mp3"
 
 import Board from "../Board";
 import HeadingAlpha from "../HeadingAlpha"
@@ -58,44 +56,42 @@ const WorkoutPage = ({ match: { params } }) => {
     }
 
     // Sounds
-    const ZeroSecMp3Ref = useRef(new Audio(ZeroSecMp3))
-    const OneSecMp3Ref = useRef(new Audio(OneSecMp3))
-    const TwoSecMp3Ref = useRef(new Audio(TwoSecMp3))
-    const ThreeSecMp3Ref = useRef(new Audio(ThreeSecMp3))
-    const HornWavRef = useRef(new Audio(HornWav))
+    const startAudioRef = useRef(new Audio(startAudio))
+    const beepAudioRef = useRef(new Audio(beepAudio))
+    const doneAudioRef = useRef(new Audio(doneAudio))
 
     // const lastExercise = exerciseIndex === workout.length - 1
     if (countdownSeconds === exercise.seconds + 5 && countdownActive) {
         headingBeta = "🚦🚦🚦🚦🚦"
-        ThreeSecMp3Ref.current.play()
+        beepAudioRef.current.play()
     }
     if (countdownSeconds === exercise.seconds + 4 && countdownActive) {
         headingBeta = "🚦🚦🚦🚦"
-        ThreeSecMp3Ref.current.play()
+        beepAudioRef.current.play()
     }
     if (countdownSeconds === exercise.seconds + 3 && countdownActive) {
         headingBeta = "🚦🚦🚦"
-        ThreeSecMp3Ref.current.play()
+        beepAudioRef.current.play()
     }
     if (countdownSeconds === exercise.seconds + 2 && countdownActive) {
         headingBeta = "🚦🚦"
-        TwoSecMp3Ref.current.play()
+        beepAudioRef.current.play()
     }
     if (countdownSeconds === exercise.seconds + 1 && countdownActive) {
         headingBeta = "🚦"
-        OneSecMp3Ref.current.play()
+        beepAudioRef.current.play()
     }
     // When exercise starts
-    if (countdownSeconds === exercise.seconds && countdownActive) ZeroSecMp3Ref.current.play()
+    if (countdownSeconds === exercise.seconds && countdownActive) startAudioRef.current.play()
     // When exercise is done
     if (countdownSeconds === 0) {
         if (!nextExercise) {
-            HornWavRef.current.play()
+            doneAudioRef.current.play()
             pauseCountdown()
             headingAlpha = "Done!"
             headingBeta = "🎉🎉🎉"
         }
-        else if (countdownActive && description !== "Rest" && nextExercise.description === "Rest") ZeroSecMp3Ref.current.play()
+        else if (countdownActive && description !== "Rest" && nextExercise.description === "Rest") startAudioRef.current.play()
         if (nextExercise) {
             resetCountdown(nextExercise.seconds + (nextExercise.description === "Rest" ? -5 : 5)) // Problem if rest < 5
             setExerciseIndex(exerciseIndex + 1)
