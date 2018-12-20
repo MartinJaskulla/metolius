@@ -81,7 +81,7 @@ const StyledSvg = styled.svg`
     }
 
     animation-name: fade-in;
-    animation-duration: 1s;
+    animation-duration: 0.75s;
     animation-timing-function: ease;
 `
 

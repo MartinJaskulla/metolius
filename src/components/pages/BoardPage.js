@@ -130,7 +130,7 @@ const StyledH2 = styled.h2`
     cursor: pointer;
     
     animation-name: fade-in;
-    animation-duration: 1s;
+    animation-duration: 0.75s;
     animation-timing-function: ease;
     animation-delay: ${props => props.animationDelay};
     animation-fill-mode: backwards;

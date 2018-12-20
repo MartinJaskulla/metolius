@@ -8,9 +8,9 @@ const SelectWorkoutPage = props => {
             <CenterBox>
                 <HeadingAlpha text="Choose your Workout!"/>
                 <div>
-                    <SelectWorkoutEmoji emoji="🐣" animationDelay="0.5s" push={props.history.push} />
-                    <SelectWorkoutEmoji emoji="🐒" animationDelay="0.75s" push={props.history.push} />
-                    <SelectWorkoutEmoji emoji="🦍" animationDelay="1s" push={props.history.push} />
+                    <SelectWorkoutEmoji emoji="🐣" animationDelay="0.25s" push={props.history.push} />
+                    <SelectWorkoutEmoji emoji="🐒" animationDelay="0.5s" push={props.history.push} />
+                    <SelectWorkoutEmoji emoji="🦍" animationDelay="0.75s" push={props.history.push} />
                 </div>
             </CenterBox>
     )

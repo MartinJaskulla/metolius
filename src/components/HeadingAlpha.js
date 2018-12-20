@@ -20,7 +20,7 @@ const StyledH1 = styled.h1`
     margin: 0rem;
 
     animation-name: fade-in;
-    animation-duration: 1s;
+    animation-duration: 0.75s;
     animation-timing-function: ease;
     animation-delay: ${props => props.animationDelay};
     animation-fill-mode: backwards;
