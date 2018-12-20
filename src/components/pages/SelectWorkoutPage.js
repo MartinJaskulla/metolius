@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import HeadingAlpha from "../HeadingAlpha";
 
 const SelectWorkoutPage = props => {
     return (
-        <Layout>
             <CenterBox>
-                <H1>Choose your Workout!</H1>
+                <HeadingAlpha text="Choose your Workout!"/>
                 <div>
                     <ButtonBox>
                         <Button onClick={() => props.history.push("/workouts/entry")}><span role="img" aria-label="Hatching chick">🐣</span></Button>
@@ -18,18 +18,8 @@ const SelectWorkoutPage = props => {
                     </ButtonBox>
                 </div>
             </CenterBox>
-        </Layout>
     )
 }
-
-const Layout = styled.div`
-height: 100vh;
-padding: 5vh;
-box-sizing: border-box;
-background: #15246d;
-position: relative;
-text-align: center
-`
 
 const CenterBox = styled.div`
 position: absolute;
@@ -37,15 +27,10 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 width: 80vw;
-`
 
-const H1 = styled.h1`
-font-family: Bangers, Arial;
-font-size: 8vw;
-font-weight: 100;
-color: #fff;
-margin: 0rem;
-margin-bottom: 10vh;
+div:first-child {
+    margin-top: 10vh;
+}
 `
 
 const ButtonBox = styled.div`

@@ -23,6 +23,7 @@ import ThreeSecMp3 from "../../audio/3-sec.mp3"
 import HornWav from "../../audio/horn.wav"
 
 import Board from "../Board";
+import HeadingAlpha from "../HeadingAlpha"
 
 const workouts = {
     entry: entryWorkout,
@@ -105,7 +106,7 @@ const WorkoutPage = ({ match: { params } }) => {
     return (
         <StyledDiv>
             <Board active={hold} />
-            <StyledH1>{headingAlpha}</StyledH1>
+            <HeadingAlpha text={headingAlpha} />
             <StyledH2 onClick={toggleCountdown}>{headingBeta}</StyledH2>
         </StyledDiv>
     )
@@ -114,10 +115,8 @@ const WorkoutPage = ({ match: { params } }) => {
 export default WorkoutPage
 
 const StyledDiv = styled.div`
-    box-sizing: border-box;
-    padding: 1rem;
-    background: #15246d;
-    height: 100vh;
+width: 100%;
+height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,14 +125,6 @@ const StyledDiv = styled.div`
     svg {
         width: 80%;
     }
-`
-
-const StyledH1 = styled.h1`    
-    font-family: Bangers, Arial;
-    font-size: 8vw;
-    font-weight: 100;
-    color: #fff;
-    margin: 0rem;
 `
 
 const StyledH2 = styled.h2`
