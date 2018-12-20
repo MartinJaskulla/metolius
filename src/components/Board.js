@@ -72,7 +72,7 @@ const Board = ({ active }) => {
 const StyledSvg = styled.svg`
     ${props => {
         if (!props.active) return
-        if (props.active === "any") return ".Holds"
+        if (props.active === "any") return "#Holds"
         const holds = props.active.split(" ")
         const string = holds.map(hold => "#" + hold).join(", ")
         return string

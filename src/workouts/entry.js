@@ -72,6 +72,11 @@ export default [
         seconds: 8,
     },
     {
+        description: "Rest",
+        hold: null,
+        seconds: 10,
+    },
+    {
         description: "Dead hang",
         hold: "Fifteen FiveRight",
         seconds: 8,
@@ -79,7 +84,7 @@ export default [
     {
         description: "Rest",
         hold: null,
-        seconds: 44,
+        seconds: 34,
     },
     // 7th min
     {
