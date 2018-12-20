@@ -79,6 +79,10 @@ const StyledSvg = styled.svg`
     }} {
         fill: #C9DAFA;
     }
+
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease;
 `
 
 // fill: #C9DAFA;

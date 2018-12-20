@@ -29,7 +29,7 @@ const workouts = {
     advanced: advancedWorkout
 }
 
-const WorkoutPage = ({ match: { params } }) => {
+const BoardPage = ({ match: { params } }) => {
     const [exerciseIndex, setExerciseIndex] = useState(0)
     const [started, setStarted] = useState(false)
 
@@ -51,6 +51,7 @@ const WorkoutPage = ({ match: { params } }) => {
     if (!countdownActive) headingBeta = "⏸️"
     if (countdownSeconds > exercise.seconds && countdownActive) headingBeta = "🚦"
     if (!started) {
+        hold = null
         headingAlpha = params.workout + " routine"
         headingBeta = "🚀"
     }
@@ -102,13 +103,13 @@ const WorkoutPage = ({ match: { params } }) => {
     return (
         <StyledDiv>
             <Board active={hold} />
-            <HeadingAlpha text={headingAlpha} />
-            <StyledH2 onClick={toggleCountdown}>{headingBeta}</StyledH2>
+            <HeadingAlpha animationDelay="0.25s" text={headingAlpha} />
+            <StyledH2 animationDelay="0.5s"onClick={toggleCountdown}>{headingBeta}</StyledH2>
         </StyledDiv>
     )
 }
 
-export default WorkoutPage
+export default BoardPage
 
 const StyledDiv = styled.div`
 width: 100%;
@@ -127,4 +128,10 @@ const StyledH2 = styled.h2`
     font-size: calc(3vw + 1vh);
     margin: 0rem;
     cursor: pointer;
+    
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: ${props => props.animationDelay};
+    animation-fill-mode: backwards;
 `

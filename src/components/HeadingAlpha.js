@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-const HeadingAlpha = ({text}) => {
+const HeadingAlpha = ({ text, animationDelay = 0 }) => {
     return (
-        <StyledH1>
+        <StyledH1 animationDelay={animationDelay}>
             {text}
         </StyledH1>
     )
@@ -18,4 +18,10 @@ const StyledH1 = styled.h1`
     text-transform: uppercase;
     color: #fff;
     margin: 0rem;
+
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: ${props => props.animationDelay};
+    animation-fill-mode: backwards;
 `

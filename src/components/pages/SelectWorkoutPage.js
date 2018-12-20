@@ -1,21 +1,16 @@
 import React from "react"
 import styled from "styled-components"
 import HeadingAlpha from "../HeadingAlpha";
+import SelectWorkoutEmoji from "../SelectWorkoutEmoji";
 
 const SelectWorkoutPage = props => {
     return (
             <CenterBox>
                 <HeadingAlpha text="Choose your Workout!"/>
                 <div>
-                    <ButtonBox>
-                        <Button onClick={() => props.history.push("/workouts/entry")}><span role="img" aria-label="Hatching chick">🐣</span></Button>
-                    </ButtonBox>
-                    <ButtonBox>
-                        <Button onClick={() => props.history.push("/workouts/intermediate")}><span role="img" aria-label="Monkey">🐒</span></Button>
-                    </ButtonBox>
-                    <ButtonBox>
-                        <Button onClick={() => props.history.push("/workouts/advanced")}><span role="img" aria-label="Gorilla">🦍</span></Button>
-                    </ButtonBox>
+                    <SelectWorkoutEmoji emoji="🐣" animationDelay="0.5s" push={props.history.push} />
+                    <SelectWorkoutEmoji emoji="🐒" animationDelay="0.75s" push={props.history.push} />
+                    <SelectWorkoutEmoji emoji="🦍" animationDelay="1s" push={props.history.push} />
                 </div>
             </CenterBox>
     )

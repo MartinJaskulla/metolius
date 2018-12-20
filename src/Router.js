@@ -1,6 +1,6 @@
 import React from "react"
 import {BrowserRouter, Route} from "react-router-dom"
-import WorkoutPage from "./components/pages/WorkoutPage";
+import BoardPage from "./components/pages/BoardPage";
 import SelectWorkoutPage from "./components/pages/SelectWorkoutPage";
 
 const MyComponent = () => {
@@ -8,7 +8,7 @@ const MyComponent = () => {
         <BrowserRouter>
             <>
                 <Route path="/" exact component={SelectWorkoutPage}/>
-                <Route path="/workouts/:workout" exact component={WorkoutPage}/>
+                <Route path="/workouts/:workout" exact component={BoardPage}/>
             </>
         </BrowserRouter>
     )
