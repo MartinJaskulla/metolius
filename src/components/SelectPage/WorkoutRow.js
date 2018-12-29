@@ -1,8 +1,7 @@
 import React, { useContext } from "react"
 // import { Link } from "react-router-dom"
-import Context from "../../Context";
 import styled from "styled-components"
-
+import {Link} from "react-router-dom"
 
 
 const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
@@ -15,9 +14,14 @@ const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
             {workouts.map((workout, index) => {
                 return (
                     <HoverContainer key={index}>
-                        <StyledButton animationDelay={(index / 4 + animationDelay) + "s"}>
+                    {/* <Link to="/dashboard"> */}
+                        <StyledButton
+                            animationDelay={(index / 4 + animationDelay) + "s"}
+                            // onClick={() => push(`/workouts/${data[emoji].url}`)}
+                            >
                             <Emoji role="img">{workout.emoji}</Emoji>
                         </StyledButton>
+                    {/* </Link> */}
                     </HoverContainer>
                 )
             })}
