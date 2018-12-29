@@ -1,12 +1,10 @@
 import React, { useContext } from "react"
-// import { Link } from "react-router-dom"
 import styled from "styled-components"
-import {Link} from "react-router-dom"
-
+import LinkButton from './LinkButton'
 
 const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
     if (workouts.length < 3) {
-        workouts = [...workouts, { emoji: "➕" }]
+        workouts = [...workouts, { emoji: "➕", title: "add"}]
     }
 
     return (
@@ -14,14 +12,12 @@ const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
             {workouts.map((workout, index) => {
                 return (
                     <HoverContainer key={index}>
-                    {/* <Link to="/dashboard"> */}
-                        <StyledButton
+                        <LinkButton
+                            to={`/workouts/${workout.title.replace(/\s+/g, '')}`}
                             animationDelay={(index / 4 + animationDelay) + "s"}
-                            // onClick={() => push(`/workouts/${data[emoji].url}`)}
-                            >
+                        >
                             <Emoji role="img">{workout.emoji}</Emoji>
-                        </StyledButton>
-                    {/* </Link> */}
+                        </LinkButton>
                     </HoverContainer>
                 )
             })}
@@ -56,28 +52,6 @@ transform: translateX(-50%);
 &:hover > * {
     transform: translateY(-1rem) scale(1.02 )
 } 
-`
-
-const StyledButton = styled.button`
-background: none;
-border: none;
-padding: 0;
-cursor: pointer;
-outline: none;
-text-decoration: none;
-transition: transform .2s
-
-@media only screen and (min-width: 1000px) {
-    &:focus {
-        transform: translateY(-1rem) scale(1.02 )
-    }
-}
-
-animation-name: fade-in;
-animation-duration: 0.75s;
-animation-timing-function: ease;
-animation-delay: ${props => props.animationDelay};
-animation-fill-mode: backwards;
 `
 
 export default WorkoutRow

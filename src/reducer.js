@@ -3,7 +3,10 @@ const reducer = (state, action) => {
         case "ADD_WORKOUT":
             return { 
                 ...state,
-                workouts: [...state.workouts, action.workout]
+                workouts: {
+                    ...state.workouts,
+                    [action.workout.title]: action.workout
+                }
             }
         default:
             return state

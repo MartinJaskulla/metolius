@@ -1,17 +1,11 @@
 import React, { useEffect, useContext } from "react"
 import styled from "styled-components"
-import entry from "../../workouts/entry"
-import intermediate from "../../workouts/intermediate"
-import advanced from "../../workouts/advanced"
 import WorkoutRow from "./WorkoutRow";
 import { db } from "../../Firestore"
 import Context from "../../Context";
 
-const defaultWorkouts = [entry, intermediate, advanced]
-
-
 const SelectPage = () => {
-    const {state, dispatch} = useContext(Context)
+    const { state, dispatch } = useContext(Context)
 
     useEffect(() => {
         db
@@ -22,11 +16,16 @@ const SelectPage = () => {
             .then(snapshot => snapshot.forEach(doc => dispatch({ type: "ADD_WORKOUT", workout: doc.data() })))
     }, [])
 
+    const { entry, intermediate, advanced } = state.workouts
+    const defaultWorkouts = [entry, intermediate, advanced]
+
+    const databaseWorkouts = Object.values(state.workouts).filter(workout => !(workout.title === "entry workout" ||  workout.title === "intermediate workout" ||  workout.title === "advanced workout"))
+
     return (
         <FlexColumn>
             <StyledH1>Select Workout</StyledH1>
             <WorkoutRow workouts={defaultWorkouts} />
-            <WorkoutRow workouts={state.workouts} animationDelay={0.75} />
+            <WorkoutRow workouts={databaseWorkouts} animationDelay={0.75} />
         </FlexColumn>
     )
 }

@@ -10,30 +10,27 @@
 */
 
 
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useContext } from "react"
 import useCountdown from "../../hooks/useCountdown"
 import styled from "styled-components"
-import entryWorkout from "../../workouts/entry"
-import intermediateWorkout from "../../workouts/intermediate"
-import advancedWorkout from "../../workouts/advanced"
 
 import startAudio from "../../audio/start.mp3"
 import beepAudio from "../../audio/beep.mp3"
 import doneAudio from "../../audio/done.mp3"
 
 import Board from "./Board";
-
-const workouts = {
-    entry: entryWorkout,
-    intermediate: intermediateWorkout,
-    advanced: advancedWorkout
-}
+import Context from "../../Context";
 
 const BoardPage = ({ match: { params } }) => {
+    return <h1>hi</h1>
+    /*
+    const {state} = useContext(Context)
     const [exerciseIndex, setExerciseIndex] = useState(0)
     const [started, setStarted] = useState(false)
     
-    const workout = workouts[params.workout]
+    console.log(state)
+
+    let workout = workouts[params.workout] || state.workouts[params.workout]
     const exercise = workout[exerciseIndex]
     const nextExercise = workout[exerciseIndex + 1]
     let { hold, description } = exercise
@@ -107,6 +104,7 @@ const BoardPage = ({ match: { params } }) => {
             <StyledH2 animationDelay="0.5s"onClick={toggleCountdown}>{headingBeta}</StyledH2>
         </StyledDiv>
     )
+    */
 }
 
 export default BoardPage
