@@ -1,15 +1,10 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useEffect } from "react"
 import Router from "./Router";
 import Context from "./Context"
 import reducer from "./reducer";
-import entry from "./workouts/entry"
-import intermediate from "./workouts/intermediate"
-import advanced from "./workouts/advanced"
-
-const initialState = { workouts: [entry, intermediate, advanced] }
 
 const App = () => {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, {workouts: []})
 
     return (
         <Context.Provider value={{ state, dispatch }}>

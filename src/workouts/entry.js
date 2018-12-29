@@ -1,6 +1,6 @@
 export default {
     emoji: "🐣",
-    name: "entry",
+    title: "entry workout",
     exercises: [
         // 1st min
         {
