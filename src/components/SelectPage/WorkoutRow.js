@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import LinkButton from './LinkButton'
+import LinkButton from '../LinkButton'
 
 const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
     if (workouts.length < 3) {
-        workouts = [...workouts, { emoji: "➕", title: "add"}]
+        workouts = [...workouts, { emoji: "➕", title: "add", id: "new"}]
     }
 
     return (
@@ -12,12 +12,12 @@ const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
             {workouts.map((workout, index) => {
                 return (
                     <HoverContainer key={index}>
-                        <LinkButton
-                            to={`/workouts/${workout.title.replace(/\s+/g, '')}`}
+                        <StyledLinkButton
+                            to={`/workouts/${workout.id}`}
                             animationDelay={(index / 4 + animationDelay) + "s"}
                         >
-                            <Emoji role="img">{workout.emoji}</Emoji>
-                        </LinkButton>
+                            <Emoji role="img" small={workout.id === "ArEhpds6xiRfM8KRGEoC"}>{workout.emoji}</Emoji>
+                        </StyledLinkButton>
                     </HoverContainer>
                 )
             })}
@@ -26,7 +26,7 @@ const WorkoutRow = ({ workouts, animationDelay = 0 }) => {
 }
 
 const Emoji = styled.span`
-font-size: 10vw;
+font-size: 10vw
 `
 const FlexContainer = styled.div`
 width: 70vw;
@@ -54,4 +54,21 @@ transform: translateX(-50%);
 } 
 `
 
+const StyledLinkButton = styled(LinkButton)`
+transition: transform .2s
+backface-visibility:hidden;
+
+@media only screen and (min-width: 1000px) {
+
+    &:focus {
+        transform: translateY(-1rem) scale(1.02 )
+    }
+}
+
+animation-name: fade-in;
+animation-duration: 0.75s;
+animation-timing-function: ease;
+animation-delay: ${props => props.animationDelay};
+animation-fill-mode: backwards;
+`
 export default WorkoutRow

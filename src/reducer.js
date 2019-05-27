@@ -5,7 +5,7 @@ const reducer = (state, action) => {
                 ...state,
                 workouts: {
                     ...state.workouts,
-                    [action.workout.title]: action.workout
+                    [action.workout.id]: action.workout
                 }
             }
         default:

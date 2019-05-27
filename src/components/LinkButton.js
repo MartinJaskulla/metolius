@@ -37,20 +37,4 @@ padding: 0;
 cursor: pointer;
 outline: none;
 text-decoration: none;
-transition: transform .2s
-backface-visibility:hidden;
-
-@media only screen and (min-width: 1000px) {
-
-    &:focus {
-        transform: translateY(-1rem) scale(1.02 )
-    }
-}
-
-animation-name: fade-in;
-animation-duration: 0.75s;
-animation-timing-function: ease;
-animation-delay: ${props => props.animationDelay};
-animation-fill-mode: backwards;
-
 `

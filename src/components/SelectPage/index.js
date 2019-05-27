@@ -16,11 +16,14 @@ const SelectPage = () => {
             .then(snapshot => snapshot.forEach(doc => dispatch({ type: "ADD_WORKOUT", workout: doc.data() })))
     }, [])
 
-    const { entry, intermediate, advanced } = state.workouts
+    const { CE3SjyuviRKRLg8zzFrq: entry, ["9A1AFrgqORiXRPM3SoZM"]: intermediate, zzmYcQyOwALkPTLontuu: advanced } = state.workouts
     const defaultWorkouts = [entry, intermediate, advanced]
 
-    const databaseWorkouts = Object.values(state.workouts).filter(workout => !(workout.title === "entry workout" ||  workout.title === "intermediate workout" ||  workout.title === "advanced workout"))
+    const databaseWorkouts = Object.values(state.workouts).filter(workout => workout.id !== "9A1AFrgqORiXRPM3SoZM" &&  workout.id !== "CE3SjyuviRKRLg8zzFrq" &&  workout.id !== "zzmYcQyOwALkPTLontuu")
 
+
+    console.log(defaultWorkouts)
+    console.log(databaseWorkouts)
     return (
         <FlexColumn>
             <StyledH1>Select Workout</StyledH1>

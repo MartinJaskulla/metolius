@@ -1,0 +1,3 @@
+- sound component mit access to global state
+- in jsx audio,audio,audio, 
+- wenn im global state sekunden condition übereinstimen, play sound

@@ -7,7 +7,13 @@ import intermediate from "./workouts/intermediate"
 import advanced from "./workouts/advanced"
 
 const App = () => {
-    const [state, dispatch] = useReducer(reducer, { workouts: { entry, intermediate, advanced } })
+    const [state, dispatch] = useReducer(reducer, {
+        workouts: {
+            [entry.id]: entry,
+            [intermediate.id]: intermediate,
+            [advanced.id]: advanced
+        }
+    })
 
     return (
         <Context.Provider value={{ state, dispatch }}>

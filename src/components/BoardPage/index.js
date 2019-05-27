@@ -1,4 +1,7 @@
 /*
+🚀⏱😴⏸️🏠⚙️✏️✉️💔✅✔️⛔⚠️❌🔑
+
+stats: total wokrouts, achievements. Pokal emoji
 -exercises direkt hintereinander -> rest zeiht nicht oft genug -5 ab. (advanced min4).
 -flag: getready: false in json?
 -campus
@@ -7,8 +10,8 @@
 -Mobile Click anywhere start/pause
 -h2 ist Button.
 -3 basic workouts part of frontend. additional workouts from database (emoji, aria-label,url = part of json)
+-NICHT === 0 checken, sonder <= 0, weil auf dem Handy manchmal unter 0 gerät
 */
-
 
 import React, { useState, useRef, useContext } from "react"
 import useCountdown from "../../hooks/useCountdown"
@@ -18,21 +21,17 @@ import startAudio from "../../audio/start.mp3"
 import beepAudio from "../../audio/beep.mp3"
 import doneAudio from "../../audio/done.mp3"
 
-import Board from "./Board";
+import Board from "../Board";
 import Context from "../../Context";
 
-const BoardPage = ({ match: { params } }) => {
-    return <h1>hi</h1>
-    /*
+const BoardPage = ({ match: { params } }) => {    
     const {state} = useContext(Context)
     const [exerciseIndex, setExerciseIndex] = useState(0)
     const [started, setStarted] = useState(false)
-    
-    console.log(state)
 
-    let workout = workouts[params.workout] || state.workouts[params.workout]
-    const exercise = workout[exerciseIndex]
-    const nextExercise = workout[exerciseIndex + 1]
+    const workout = state.workouts[params.workoutId]
+    const exercise = workout.exercises[exerciseIndex]
+    const nextExercise = workout.exercises[exerciseIndex + 1]
     let { hold, description } = exercise
 
     const { countdownSeconds, countdownActive, startCountdown, pauseCountdown, resetCountdown } = useCountdown(exercise.seconds + 5)
@@ -49,7 +48,7 @@ const BoardPage = ({ match: { params } }) => {
     if (countdownSeconds > exercise.seconds && countdownActive) headingBeta = "🚦"
     if (!started) {
         hold = null
-        headingAlpha = params.workout + " routine"
+        headingAlpha = workout.title
         headingBeta = "🚀"
     }
 
@@ -104,7 +103,6 @@ const BoardPage = ({ match: { params } }) => {
             <StyledH2 animationDelay="0.5s"onClick={toggleCountdown}>{headingBeta}</StyledH2>
         </StyledDiv>
     )
-    */
 }
 
 export default BoardPage
